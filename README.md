@@ -69,81 +69,8 @@ i
 ### 2.1 Gradual Changes
 #### 1. Drift Setting
 Each arm’s mean changes slowly over time:
-
-##### 𝜇
-𝑖
-,
-𝑡
-=
-𝜇
-𝑖
-,
-𝑡
-−
-1
-+
-𝜖
-𝑖
-,
-𝑡
-,
-𝜖
-𝑖
-,
-𝑡
-∼
-𝑁
-(
-0
-,
-0.01
-2
-)
-μ 
-i,t
-​
- =μ 
-i,t−1
-​
- +ϵ 
-i,t
-​
- ,ϵ 
-i,t
-​
- ∼N(0,0.01 
-2
- )
 #### 2. Mean-Reverting Setting
 Each arm’s mean is pulled toward zero:
-
-𝜇
-𝑖
-,
-𝑡
-=
-0.5
-𝜇
-𝑖
-,
-𝑡
-−
-1
-+
-𝜖
-𝑖
-,
-𝑡
-μ 
-i,t
-​
- =0.5μ 
-i,t−1
-​
- +ϵ 
-i,t
-​
- 
 #### Pilot Runs
 Conducted pilot runs with different parameters (ε and α) to find best values for:
 
