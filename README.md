@@ -55,3 +55,129 @@ max
  ,1).
 
 Gradient Bandit: Pilot tested α values [0.1, 0.2, 0.4, 0.6, 0.8, 1.0]; α = 0.2 found best balance.
+### Conclusion - Part 1
+The epsilon-greedy and gradient bandit methods outperform others due to their balance between exploration and exploitation. The greedy method suffers due to lack of exploration. Optimistic greedy performs moderately well early on but is outperformed in the long run.
+## Part 2: Non-Stationary Bandit
+We modify the environment so that the true means 
+𝜇
+𝑖
+μ 
+i
+​
+  are no longer stationary.
+
+### 2.1 Gradual Changes
+#### 1. Drift Setting
+Each arm’s mean changes slowly over time:
+
+𝜇
+𝑖
+,
+𝑡
+=
+𝜇
+𝑖
+,
+𝑡
+−
+1
++
+𝜖
+𝑖
+,
+𝑡
+,
+𝜖
+𝑖
+,
+𝑡
+∼
+𝑁
+(
+0
+,
+0.01
+2
+)
+μ 
+i,t
+​
+ =μ 
+i,t−1
+​
+ +ϵ 
+i,t
+​
+ ,ϵ 
+i,t
+​
+ ∼N(0,0.01 
+2
+ )
+#### 2. Mean-Reverting Setting
+Each arm’s mean is pulled toward zero:
+
+𝜇
+𝑖
+,
+𝑡
+=
+0.5
+𝜇
+𝑖
+,
+𝑡
+−
+1
++
+𝜖
+𝑖
+,
+𝑡
+μ 
+i,t
+​
+ =0.5μ 
+i,t−1
+​
+ +ϵ 
+i,t
+​
+ 
+#### Pilot Runs
+Conducted pilot runs with different parameters (ε and α) to find best values for:
+
+Epsilon-Greedy: ε = 0.1
+
+Gradient Bandit: α = 0.2
+
+Findings
+Gradient Bandit showed better adaptability to non-stationarity. Epsilon-greedy also performed well due to continued exploration.
+
+### 2.2 Abrupt Changes
+#### Setup
+At time step t = 501, the true action values (means) are randomly permuted. Two scenarios are tested:
+
+1. No Reset: Algorithms continue without any knowledge of the changepoint.
+
+2. Hard Reset: Algorithms reset internal state (Q-values, preferences) at 
+𝑡
+=
+501
+t=501.
+## Observations
+Resetting significantly helps action-value-based methods.
+
+Gradient Bandit adapts well even without reset due to continual preference update.
+
+## Final Comments
+Epsilon-Greedy and Gradient Bandit are most robust in both stationary and non-stationary settings.
+
+Optimistic Greedy is useful early but lacks adaptability.
+
+Reset awareness improves performance drastically after abrupt changes.
+
+Proper parameter tuning via pilot experiments is essential for maximizing performance.
+
+## Reproducibility
+All code is available at the GitHub repository linked above.
