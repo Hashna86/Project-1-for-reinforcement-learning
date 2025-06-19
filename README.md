@@ -1,4 +1,4 @@
-# Introduction
+
 ## Part 1: Stationary k-Armed Bandit
 ### Problem Description
 We consider a 10-armed bandit problem where the true action values (means) for each arm are drawn from a normal distribution 
