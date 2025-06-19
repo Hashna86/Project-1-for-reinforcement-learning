@@ -70,7 +70,7 @@ i
 #### 1. Drift Setting
 Each arm’s mean changes slowly over time:
 
-𝜇
+##### 𝜇
 𝑖
 ,
 𝑡
