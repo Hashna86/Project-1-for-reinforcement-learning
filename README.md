@@ -68,9 +68,9 @@ i
 
 ### 2.1 Gradual Changes
 #### 1. Drift Setting
-Each arm’s mean changes slowly over time:
+Each arm’s mean changes slowly over time.
 #### 2. Mean-Reverting Setting
-Each arm’s mean is pulled toward zero:
+Each arm’s mean is pulled toward zero.
 #### Pilot Runs
 Conducted pilot runs with different parameters (ε and α) to find best values for:
 
