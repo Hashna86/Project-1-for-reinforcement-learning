@@ -110,3 +110,12 @@ Proper parameter tuning via pilot experiments is essential for maximizing perfor
 All code is available at the GitHub repository linked above.
 
 ## ASSIGNMENT-2
+## Gridworld Assignment Report
+## Part 1 – Value Function Estimation and Optimal Policy
+In Part 1, we evaluated the state-value function and optimal policies for a 5×5 Gridworld with special squares (BLUE at (0,1), GREEN at (0,4), RED at (3,2), and YELLOW at (4,4)). BLUE teleports to RED (+5 reward), GREEN teleports to RED or YELLOW (50% chance each, +2.5 reward), off-grid moves yield −0.5 reward, and valid moves yield 0 reward. We solved the Bellman equation analytically using matrix inversion and verified results using iterative policy evaluation, ensuring identical results. Optimal policies were derived using the Bellman optimality equation, policy iteration, and value iteration, with all approaches converging to the same state values.
+## Part 2 – Monte Carlo Control for Modified Gridworld
+In Part 2, the RED state was relocated to (4,2) and terminal states were defined at (2,0), (2,4), and (4,0). Using γ = 0.95, we applied three Monte Carlo methods to estimate the optimal value function and policy:
+1) Exploring Starts (On-Policy MC),
+2) ε-soft On-Policy MC (ε = 0.1, no exploring starts),
+3) Off-Policy MC with Per-Decision Importance Sampling (PDIS). Each method used 10,000 episodes and a maximum of 50 steps per episode for stability.
+
