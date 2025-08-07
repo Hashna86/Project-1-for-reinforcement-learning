@@ -111,10 +111,10 @@ All code is available at the GitHub repository linked above.
 
 
 ## ASSIGNMENT-2
-## Gridworld Assignment Report
-## Part 1 – Value Function Estimation and Optimal Policy
+### Gridworld Assignment Report
+### Part 1 – Value Function Estimation and Optimal Policy
 In Part 1, we evaluated the state-value function and optimal policies for a 5×5 Gridworld with special squares (BLUE at (0,1), GREEN at (0,4), RED at (3,2), and YELLOW at (4,4)). BLUE teleports to RED (+5 reward), GREEN teleports to RED or YELLOW (50% chance each, +2.5 reward), off-grid moves yield −0.5 reward, and valid moves yield 0 reward. We solved the Bellman equation analytically using matrix inversion and verified results using iterative policy evaluation, ensuring identical results. Optimal policies were derived using the Bellman optimality equation, policy iteration, and value iteration, with all approaches converging to the same state values.
-## Part 2 – Monte Carlo Control for Modified Gridworld
+### Part 2 – Monte Carlo Control for Modified Gridworld
 In Part 2, the RED state was relocated to (4,2) and terminal states were defined at (2,0), (2,4), and (4,0). Using γ = 0.95, we applied three Monte Carlo methods to estimate the optimal value function and policy:
 1) Exploring Starts (On-Policy MC),
 2) ε-soft On-Policy MC (ε = 0.1, no exploring starts),
@@ -122,16 +122,16 @@ In Part 2, the RED state was relocated to (4,2) and terminal states were defined
 
 
 ## ASSIGNMENT-3
-## Objective:
+### Objective:
 The goal of this assignment is to analyze and compare the performance of the SARSA and Q-learning reinforcement learning algorithms in a 5x5 GridWorld environment. The task is to learn optimal navigation policies under risk of penalty and reach terminal states with minimum cumulative negative reward.
-## Environment Setup:
+### Environment Setup:
 - Grid Size: 5x5
 - Start State: (4, 0) (bottom-left corner)
 - Red Penalty States: [(2, 0), (2, 1), (2, 3), (2, 4)] with reward -20 and reset to start
 - Terminal States: [(0, 0), (0, 4)]
 - Other Moves: Reward -1
 - Invalid Moves: Reward -1
-## Algorithms Implemented:
+### Algorithms Implemented:
 1. SARSA (On-policy TD Control)
 2. Q-learning (Off-policy TD Control)
 
@@ -141,21 +141,21 @@ Both algorithms use the ε-greedy policy for exploration, with the following hyp
 - Exploration rate (ε): 0.1
 - Episodes: 10,000
 - Max Steps per episode: 500
-## Trajectory Analysis:
-## 1. SARSA Agent Trajectory
+### Trajectory Analysis:
+#### 1. SARSA Agent Trajectory
 •	The agent starts at the green S cell (4, 0) and reaches the terminal state T at (0, 4)` after 8 steps.
 •	The trajectory moves upward cautiously, avoiding all red penalty states.
 •	After reaching the row with the red wall (row 2), the agent continues up, then moves right to reach the terminal.
 •	This reflects a risk-averse behavior, typical of on-policy learning — SARSA learns to act conservatively because it updates based on the actions it actually follows under the ε-greedy policy.
 
-## 2. Q-learning Agent Trajectory
+#### 2. Q-learning Agent Trajectory
 •	The agent also starts from (4, 0) and reaches a terminal state in 8 steps.
 •	However, the agent moves more directly toward the terminal, following a path that cuts through the middle by navigating closer to the red wall and using the safe gap at (2, 2).
 •	This demonstrates greedy, optimal behavior, which is expected from Q-learning, an off-policy method. It learns from the best possible future actions, not necessarily the ones taken during exploration.
-## Conclusion
+### Conclusion
 The SARSA and Q-learning agents learn different trajectories due to their underlying learning mechanisms. The SARSA agent demonstrates a more cautious path that avoids the red penalty states by moving around them, which is a result of its on-policy nature that learns from actions taken under the ε-greedy strategy. In contrast, the Q-learning agent finds a shorter and more direct path by exploiting the safe gap in the red wall. This behavior reflects its off-policy update mechanism, which prioritizes the highest possible future reward. As a result, Q-learning converges to a more optimal path faster, while SARSA tends to prioritize safer exploration even if the path is longer.
 
-## Reproducibility
+### Reproducibility
 All code is available at the GitHub repository linked above.
 
 
