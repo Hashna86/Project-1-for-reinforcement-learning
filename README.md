@@ -108,7 +108,8 @@ Proper parameter tuning via pilot experiments is essential for maximizing perfor
 
 ## Reproducibility
 All code is available at the GitHub repository linked above.
-=======================================================================================================================================================================================
+
+
 ## ASSIGNMENT-2
 ## Gridworld Assignment Report
 ## Part 1 – Value Function Estimation and Optimal Policy
@@ -119,7 +120,7 @@ In Part 2, the RED state was relocated to (4,2) and terminal states were defined
 2) ε-soft On-Policy MC (ε = 0.1, no exploring starts),
 3) Off-Policy MC with Per-Decision Importance Sampling (PDIS). Each method used 10,000 episodes and a maximum of 50 steps per episode for stability.
 
-=========================================================================================================================================================================================
+
 ## ASSIGNMENT-3
 ## Objective:
 The goal of this assignment is to analyze and compare the performance of the SARSA and Q-learning reinforcement learning algorithms in a 5x5 GridWorld environment. The task is to learn optimal navigation policies under risk of penalty and reach terminal states with minimum cumulative negative reward.
@@ -153,6 +154,9 @@ Both algorithms use the ε-greedy policy for exploration, with the following hyp
 •	This demonstrates greedy, optimal behavior, which is expected from Q-learning, an off-policy method. It learns from the best possible future actions, not necessarily the ones taken during exploration.
 ## Conclusion
 The SARSA and Q-learning agents learn different trajectories due to their underlying learning mechanisms. The SARSA agent demonstrates a more cautious path that avoids the red penalty states by moving around them, which is a result of its on-policy nature that learns from actions taken under the ε-greedy strategy. In contrast, the Q-learning agent finds a shorter and more direct path by exploiting the safe gap in the red wall. This behavior reflects its off-policy update mechanism, which prioritizes the highest possible future reward. As a result, Q-learning converges to a more optimal path faster, while SARSA tends to prioritize safer exploration even if the path is longer.
+
+## Reproducibility
+All code is available at the GitHub repository linked above.
 
 
 
