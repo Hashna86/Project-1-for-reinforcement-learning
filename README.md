@@ -108,7 +108,7 @@ Proper parameter tuning via pilot experiments is essential for maximizing perfor
 
 ## Reproducibility
 All code is available at the GitHub repository linked above.
-
+=======================================================================================================================================================================================
 ## ASSIGNMENT-2
 ## Gridworld Assignment Report
 ## Part 1 – Value Function Estimation and Optimal Policy
@@ -118,4 +118,41 @@ In Part 2, the RED state was relocated to (4,2) and terminal states were defined
 1) Exploring Starts (On-Policy MC),
 2) ε-soft On-Policy MC (ε = 0.1, no exploring starts),
 3) Off-Policy MC with Per-Decision Importance Sampling (PDIS). Each method used 10,000 episodes and a maximum of 50 steps per episode for stability.
+
+=========================================================================================================================================================================================
+## ASSIGNMENT-3
+## Objective:
+The goal of this assignment is to analyze and compare the performance of the SARSA and Q-learning reinforcement learning algorithms in a 5x5 GridWorld environment. The task is to learn optimal navigation policies under risk of penalty and reach terminal states with minimum cumulative negative reward.
+## Environment Setup:
+- Grid Size: 5x5
+- Start State: (4, 0) (bottom-left corner)
+- Red Penalty States: [(2, 0), (2, 1), (2, 3), (2, 4)] with reward -20 and reset to start
+- Terminal States: [(0, 0), (0, 4)]
+- Other Moves: Reward -1
+- Invalid Moves: Reward -1
+## Algorithms Implemented:
+1. SARSA (On-policy TD Control)
+2. Q-learning (Off-policy TD Control)
+
+Both algorithms use the ε-greedy policy for exploration, with the following hyperparameters:
+- Learning rate (α): 0.1
+- Discount factor (γ): 0.95
+- Exploration rate (ε): 0.1
+- Episodes: 10,000
+- Max Steps per episode: 500
+## Trajectory Analysis:
+## 1. SARSA Agent Trajectory
+•	The agent starts at the green S cell (4, 0) and reaches the terminal state T at (0, 4)` after 8 steps.
+•	The trajectory moves upward cautiously, avoiding all red penalty states.
+•	After reaching the row with the red wall (row 2), the agent continues up, then moves right to reach the terminal.
+•	This reflects a risk-averse behavior, typical of on-policy learning — SARSA learns to act conservatively because it updates based on the actions it actually follows under the ε-greedy policy.
+
+## 2. Q-learning Agent Trajectory
+•	The agent also starts from (4, 0) and reaches a terminal state in 8 steps.
+•	However, the agent moves more directly toward the terminal, following a path that cuts through the middle by navigating closer to the red wall and using the safe gap at (2, 2).
+•	This demonstrates greedy, optimal behavior, which is expected from Q-learning, an off-policy method. It learns from the best possible future actions, not necessarily the ones taken during exploration.
+## Conclusion
+The SARSA and Q-learning agents learn different trajectories due to their underlying learning mechanisms. The SARSA agent demonstrates a more cautious path that avoids the red penalty states by moving around them, which is a result of its on-policy nature that learns from actions taken under the ε-greedy strategy. In contrast, the Q-learning agent finds a shorter and more direct path by exploiting the safe gap in the red wall. This behavior reflects its off-policy update mechanism, which prioritizes the highest possible future reward. As a result, Q-learning converges to a more optimal path faster, while SARSA tends to prioritize safer exploration even if the path is longer.
+
+
 
